@@ -1,0 +1,53 @@
+<!DOCTYPE html> 
+<html lang="ko"> 
+<head> 
+<meta charset="UTF-8"> 
+<title>Document</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.0/react.js"></script> 
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.0/react-dom.js"></script> 
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+</head> 
+<body> 
+	<div id="root"></div>
+	<script type="text/babel">
+
+		const object = {a: 1, b: 2};
+		
+		//일반적인 사용방법
+		//const a = object.a;
+		//const b = object.b;
+
+		//더 간단한 코드(같은결과)
+		const {a, b} = object;
+
+		console.log('a : ' + a);
+		console.log('b : ' + b);
+
+		//함수를 만들어서 아래와 같은 방식으로 파라미터를 넘길 수 있음.
+		//아래와 같이 값을 정의 하면 실제로 파라미터에 해당하는 값만 넘어감 아래는 예제
+		function test1({name, age}){
+			console.log(name + '의 나이는 '+age);
+		}
+
+		test1({name: '김재욱', age: '33', test: 'aa'});
+		
+		//함수 수행시 아래와 같이 객체를 넘겨서 객체의 특정 값만 파라미터로 받아 처리가 가능함
+		const testObj = {
+			name : '테스트',
+			age : '99',
+			value : '몰라요'
+		}
+
+		test1(testObj);
+
+		//함수와 클래스의 객체 생성의 제일 큰 차이는 state가 있고 없고 차이(함수의 경우 그냥 화면상의 객체 그려주는것만 가능한듯)
+		//함수형 컴포넌트의 사용 용도
+		//1. 함수형 컴포넌트는 초기화 속도가 미세하게 빠름
+		//2. 불필요한 기능이 없으므로 메모리 자원을 덜 차지함
+		//3. 컴포넌트를 만들때 단순히 함수로만 정의가 가능하다면 함수로 정의하는게 좋음(최적화)
+		//4. 엄청 많은 컴포넌트를 만드는게 아니라면 성능상 큰 차이는 없음
+
+	</script>
+</body> 
+</html>
