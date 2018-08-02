@@ -2,22 +2,26 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+const priceForNum1 = 30;
+
 class App extends Component {
   state = {
     num1: 0,
     sum: 0,
   }
   increaseNum = () => {
-    const {num1} = this.state
+    const {num1, sum} = this.state
     this.setState({
-      num1: num1 + 1
+      num1: num1 + 1,
+      sum : num1 * priceForNum1,
     })
   }
 
   decreaseNum = () => {
     const {num1} = this.state
     num1 > 0 && this.setState({
-      num1: num1 - 1
+      num1: num1 - 1,
+      sum : num1 * priceForNum1,
     })
   }
 
