@@ -31,15 +31,6 @@ class App extends Component {
     );
   }
 
-  render() {
-    return (
-      <div className="App">
-        <button onClick={this.increaseNum}>+</button>
-        <div>value : {this.state.num1}</div>
-        <button onClick={this.decreaseNum}>-</button>
-      </div>
-    );
-  }
 }
 
 export default App;
