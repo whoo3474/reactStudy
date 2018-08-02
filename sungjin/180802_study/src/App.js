@@ -15,7 +15,7 @@ class App extends Component {
 
   decreaseNum = () => {
     const {num1} = this.state
-    this.setState({
+    num1 > 0 && this.setState({
       num1: num1 - 1
     })
   }
