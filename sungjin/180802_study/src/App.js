@@ -6,10 +6,16 @@ class App extends Component {
   state = {
     num1: 0
   }
+  increaseNum = () => {
+    const {num1} = this.state
+    this.setState({
+      num1: num1 + 1
+    })
+  }
   render() {
     return (
       <div className="App">
-        <button>+</button>
+        <button onClick={this.increaseNum}>+</button>
         <div>value : {this.state.num1}</div>
         <button>-</button>
       </div>
