@@ -4,7 +4,8 @@ import './App.css';
 
 class App extends Component {
   state = {
-    num1: 0
+    num1: 0,
+    sum: 0,
   }
   increaseNum = () => {
     const {num1} = this.state
@@ -27,6 +28,7 @@ class App extends Component {
         <button onClick={this.increaseNum}>+</button>
         <div>value : {this.state.num1}</div>
         <button onClick={this.decreaseNum}>-</button>
+        <div>sum : {this.state.sum}</div>
       </div>
     );
   }
