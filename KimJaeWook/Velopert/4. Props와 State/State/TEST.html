@@ -1,0 +1,50 @@
+<html>
+	<script src="https://unpkg.com/react@16/umd/react.development.js"></script> 
+	<script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script> 
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+	class Count extends React.Component
+	{
+		//생성자
+		constructor(props){
+			super(props)
+			this.state = {
+				number: 0
+			}
+		}
+
+		//함수선언
+		handleNumberPlus(){
+			this.setState({number: this.state.number + 1});
+		}
+		handleNumberMinus(){
+			this.setState({number: this.state.number - 1});
+		}
+		
+		//함수 사용시 아래와 같이 함수 실행 () => 을 명시 해줌
+		//state 값이 바뀔때 컴포넌트는 랜더링이 다시 됨
+		//state 값을 바꿀때 꼭 setState를 사용 해야 함 사용하지 않을 경우 리랜더링을 하지 않아서 원하는 값이 안나올수도 있음
+		//props는 부모의 값이며 읽기전용이고 state는 변경이 가능한 속성이라 생각하면 됨.
+		render(){
+			return(
+				<div>
+					<h1>카운터</h1>
+					<div>값 : {this.state.number}</div>
+					<button onClick={() => this.handleNumberPlus()}>+</button>
+					<button onClick={() => this.handleNumberMinus()}>-</button>
+				</div>
+			);
+		}
+	}
+
+	ReactDOM.render
+	(
+	  <Count/>,
+	  document.getElementById('root')
+	);
+</script>
+</body>
+</html>
