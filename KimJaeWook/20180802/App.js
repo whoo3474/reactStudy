@@ -1,18 +1,33 @@
 import React, { Component } from 'react';
-import Button from './components/Button';
 import Product from './components/Product';
+
+import './App.css';
 
 class App extends Component {
   state = {
     sum: 0,
   }
-  render() {
+
+  calcSum = (calcPrice) =>
+  {
+    this.setState({
+      sum: this.state.sum + calcPrice,
+    });
+  }
+   
+  render() { 
+    //Product의 코드를 몰라도 상품명과 상품가격만 작성 및 상품추가 가능
     return (
-      <div>
-        <div>Adults   : <Button value="asdf"/><Product name="Adults" price="5"/>   <Button value="+"/></div>
-        <div>Seniors  : <Button value="-"/><Product name="Seniors" price="7"/>  <Button value="+"/></div>
-        <div>Students : <Button value="-"/><Product name="Students" price="10"/><Button value="+"/></div>
-        <div>Total : ${this.state.sum}</div>
+      <div className="Main">
+        <Product name="Adults"   price="50"  onSum={this.calcSum} />
+        <Product name="Seniors"  price="100" onSum={this.calcSum} />
+        <Product name="Students" price="150" onSum={this.calcSum} />
+        <Product name="Test" price="200" onSum={this.calcSum} />
+        <div className="Line"></div>
+        <div>
+          <div className="Total">Total</div> 
+          <div className="Total-Price">$ {this.state.sum}</div> 
+        </div>
       </div>
     );
   }
