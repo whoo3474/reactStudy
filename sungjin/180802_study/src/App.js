@@ -13,7 +13,7 @@ class App extends Component {
     const {num1, sum} = this.state
     this.setState({
       num1: num1 + 1,
-      sum : num1 * priceForNum1,
+      sum : (num1 + 1) * priceForNum1,
     })
   }
 
@@ -21,7 +21,7 @@ class App extends Component {
     const {num1} = this.state
     num1 > 0 && this.setState({
       num1: num1 - 1,
-      sum : num1 * priceForNum1,
+      sum : (num1 - 1) * priceForNum1,
     })
   }
 
