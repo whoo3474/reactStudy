@@ -3,10 +3,15 @@ import PhoneForm from './components/PhoneForm';
 
 
 class App2 extends Component {
+  handleCreate = (data) => {
+    console.log(data);
+  }
   render() {
     return (
       <div>
-        <PhoneForm />
+        <PhoneForm 
+          onCreate={this.handleCreate}
+        />
       </div>
     );
   }
