@@ -22,6 +22,28 @@ class Counter extends Component {
     })
   }
 
+  componentWillMount() {
+    console.log('componentWillMount (deprecated)');
+  }
+
+  componentDidMount() {
+    console.log('componentDidMount');
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    console.log('shouldcomponentUpdate');
+    console.log('nextProps : ', nextProps)
+    if (nextState.number % 5 === 0) return false;
+    return true;
+  }
+
+  componentWillUpdate(nextProps, nextState) {
+    console.log('componentWillUpdate');
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    console.log('componentDidUpdate');
+  }
 
   render() {
     return (
