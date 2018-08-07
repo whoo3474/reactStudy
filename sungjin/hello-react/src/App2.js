@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PhoneForm from './components/PhoneForm';
+import PhoneInfoList from './components/PhoneInfoList';
 
 
 class App2 extends Component {
@@ -31,7 +32,7 @@ class App2 extends Component {
         <PhoneForm 
           onCreate={this.handleCreate}
         />
-        {JSON.stringify(information)}
+        <PhoneInfoList data={this.state.information}/>
       </div>
     );
   }
