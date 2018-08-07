@@ -33,6 +33,16 @@ class App2 extends Component {
     })
   }
 
+  handleUpdate = (id, data) => {
+    const { information } = this.state;
+    this.setState({
+      information: information.map(
+        info => info.id === id
+          ? { ...info, ...data}
+          : info
+      )
+    })
+  }
 
   render() {
     const {information } = this.state;
@@ -44,6 +54,7 @@ class App2 extends Component {
         <PhoneInfoList 
           data={this.state.information}
           onRemove={this.handleRemove}
+          onUpdate={this.handleUpdate}
         />
       </div>
     );
