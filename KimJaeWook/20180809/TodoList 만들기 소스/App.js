@@ -18,32 +18,43 @@ class App extends Component {
         complete: false, 
         delete: false, 
         ...data})
+    });    
+  }
+
+  handleComplete = (idx) => {
+    console.log('Function onComplete Start');
+    const { todolist } = this.state;
+    this.setState({
+      todolist: todolist.map(
+        todo => todo.idx === idx
+          ? {...todo, complete: true}
+          : todo
+      )
+    });
+    
+  }
+
+  handleDelete = (idx) => {
+    console.log('Function onDelete Start');
+    const { todolist } = this.state;
+    this.setState({
+      todolist: todolist.filter(todo => todo.idx !== idx)          
     });
   }
 
-  onComplete = () => {
-    console.log('Function onComplete Start');
-  }
-
-  onDelete = () => {
-    console.log('Function onDelete Start');
-  }
-
   render() {
-
-    //const { list } = this.state;
-    //const todolist = list.map(
-    //  list => (<Todo key={list.id} info={list}/>)
-    //);
     console.log(this.state);
-
     return (
       <div className="todo-list-template">
         <div className="title">
           오늘 할 일
         </div>
         <TodoAdd onAdd={this.handleAdd}/>
-        <TodoList />
+        <TodoList 
+          data={this.state.todolist}          
+          onComplete={this.handleComplete}
+          onDelete={this.handleDelete}
+        />
       </div>
     );
   }
