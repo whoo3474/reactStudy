@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './TodoAdd.css';
 
 class TodoAdd extends Component {
     state = {
@@ -14,6 +15,13 @@ class TodoAdd extends Component {
     handleSubmit = (e) => {
         //페이지 리로딩 방지
         e.preventDefault();
+
+        if(this.state.todo.trim().length === 0)
+        {
+            alert('빈값 또는 공백을 입력할 수 없습니다.');
+            return;
+        }        
+
         //부모에게 입력값 전달
         this.props.onAdd(this.state);
         //값 초기화
@@ -25,7 +33,7 @@ class TodoAdd extends Component {
     render()
     {
         return(
-            <form onSubmit={this.handleSubmit}>
+            <form className="form" onSubmit={this.handleSubmit}>
                 <div className="form-wrapper">
                 <input 
                     type="text" 
@@ -33,7 +41,7 @@ class TodoAdd extends Component {
                     onChange={this.handleChange}
                     value={this.state.todo} 
                 /> 
-                <button type="submit">추가</button>
+                <button className="create-button" type="submit">추가</button>
                 </div>
             </form>
         );

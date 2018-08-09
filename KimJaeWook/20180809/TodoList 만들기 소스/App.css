@@ -16,8 +16,10 @@
 }
 
 .form-wrapper {
+  text-align: center;
   padding: 1rem;
   border-bottom: 1px solid #22b8cf;
+  width: 100%;
 }
 
 .todos-wrapper {
