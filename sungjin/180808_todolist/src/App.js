@@ -5,10 +5,9 @@ class App extends Component {
   state = {
     title : 'title',
   }
-  handleCreate = () =>{
-    const { title } = this.state;
+  handleCreate = (data) =>{
     this.setState({
-      title : 'clicked',
+      title : data,
     })
   }
   render() {
