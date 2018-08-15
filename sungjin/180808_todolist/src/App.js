@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import TodoForm from './TodoForm';
+import Todo from './Todo';
 
 class App extends Component {
   state = {
@@ -14,7 +15,7 @@ class App extends Component {
     return (
       <div>
         <TodoForm onCreate={this.handleCreate}/>
-        <p>{this.state.title}</p>
+        <Todo title={this.state.title} />
       </div>
     );
   }
