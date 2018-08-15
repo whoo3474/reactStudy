@@ -3,19 +3,26 @@ import TodoForm from './TodoForm';
 import TodoList from './TodoList';
 
 class App extends Component {
+  id = 1;
   state = {
-    title : 'title',
+    info : [
+      {
+        id : 0,
+        title : 'title example',
+      },
+    ],
   }
   handleCreate = (data) =>{
+    const {info} = this.state;
     this.setState({
-      title : data,
+      info : info.concat({id: this.id++, ...data})
     })
   }
   render() {
     return (
       <div>
         <TodoForm onCreate={this.handleCreate}/>
-        <TodoList title={this.state.title}/>
+        <TodoList info={this.state.info}/>
       </div>
     );
   }
