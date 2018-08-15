@@ -5,8 +5,7 @@ class TodoList extends Component {
   render() {
     return (
 			<div>
-			list
-			<Todo />
+        <Todo title={this.props.title} />
 			</div>
     );
   }
