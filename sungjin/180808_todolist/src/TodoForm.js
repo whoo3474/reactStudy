@@ -12,12 +12,19 @@ class TodoForm extends Component {
   handleSubmit = (e)=>{
     e.preventDefault();
     this.props.onCreate(this.state);
+    this.setState({
+      title: ''
+    })
   }
   render() {
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
-        <input name="title" onChange={this.handleChange}/>
+        <input 
+          name="title" 
+          onChange={this.handleChange}
+          value={this.state.title}
+        />
         <button type="submit">버튼</button>
         </form>
       </div>
