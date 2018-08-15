@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class TodoForm extends Component {
   render() {
     return (
-      <div><input /><button>버튼</button></div>
+      <div><input /><button onClick={this.props.onCreate}>버튼</button></div>
     );
   }
 }

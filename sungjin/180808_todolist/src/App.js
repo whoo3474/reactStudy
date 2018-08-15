@@ -5,10 +5,16 @@ class App extends Component {
   state = {
     title : 'title',
   }
+  handleCreate = () =>{
+    const { title } = this.state;
+    this.setState({
+      title : 'clicked',
+    })
+  }
   render() {
     return (
       <div>
-        <TodoForm />
+        <TodoForm onCreate={this.handleCreate}/>
         <p>{this.state.title}</p>
       </div>
     );
